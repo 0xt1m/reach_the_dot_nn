@@ -4,6 +4,12 @@ import sys
 pygame.init()
 
 
+class Point:
+	def __init__(self, x, y):
+		self.x = x
+		self.y = y
+
+
 # CONSTANTS
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -21,8 +27,11 @@ FPS = 60
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 clock = pygame.time.Clock()
 
-line_A = ((70, 150), (550, 330))
-line_B = ((60, 300), (550, 250))
+
+A = Point(70, 150)
+B = Point(500, 200)
+C = Point(60, 300)
+D = Point(550, 300)
 
 t = -0.1
 
@@ -40,6 +49,15 @@ def lerp(A, B, t):
 	return A+(B-A)*t
 
 
+def get_intersection(A, B, C, D):
+	top = (D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x)
+	bottom = (D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y)
+
+	t = top/bottom
+
+	return Point(lerp(A.x, B.x, t), lerp(A.y, B.y, t))
+
+
 running = True
 while running:
 	for event in pygame.event.get():
@@ -49,13 +67,16 @@ while running:
 	screen.fill(BLACK)
 
 	# draw_dot((WIDTH/2, HEIGHT/2))
-	draw_line(line_A[0], line_A[1])
-	draw_line(line_B[0], line_B[1])
+	draw_line((A.x, A.y), (B.x, B.y))
+	draw_line((C.x, C.y), (D.x, D.y))
 
 
-	dot_x = lerp(line_A[0][0], line_A[1][0], t)
-	dot_y = lerp(line_A[0][1], line_A[1][1], t)
-	draw_dot((dot_x, dot_y))
+	# dot_x = lerp(A.x, B.x, t)
+	# dot_y = lerp(A.y, B.y, t)
+	# draw_dot((dot_x, dot_y))
+
+	intersection = get_intersection(A, B, C, D)
+	draw_dot((intersection.x, intersection.y), color=BLUE)
 
 	t+=0.003
 
