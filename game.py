@@ -23,8 +23,10 @@ goal = Goal(screen)
 # obstacle_y = random.randint(100, 500)
 obstacle_width = 300
 obstacle_height = 20
-obstacle_x = props.WIDTH / 2 - obstacle_width / 2
-obstacle_y = 290
+# obstacle_x = props.WIDTH / 2 - obstacle_width / 2
+obstacle_x = 550
+obstacle_y = 350
+
 
 obstacles = [
 	Obstacle(screen, obstacle_x, obstacle_y, obstacle_width, obstacle_height)

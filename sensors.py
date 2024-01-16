@@ -44,4 +44,4 @@ class Sensors:
 		for ray in self.rays:
 			pygame.draw.line(self.dot.screen, props.COLORS["yellow"], (ray[0].x, ray[0].y), (ray[1].x, ray[1].y), width=self.ray_width)
 			for intr in ray[2]:
-				draw_dot(screen, intr)
+				draw_dot(screen, intr, color=props.COLORS['blue'])

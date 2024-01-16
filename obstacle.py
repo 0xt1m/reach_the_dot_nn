@@ -31,4 +31,5 @@ class Obstacle:
 		segment_c = Segment(bottom_left, bottom_right)
 		segment_d = Segment(bottom_right, top_right)
 
-		return (segment_a, segment_b, segment_c, segment_d)
+		# return (segment_a, segment_b, segment_c, segment_d)
+		return ([segment_c])
