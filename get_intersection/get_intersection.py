@@ -29,7 +29,7 @@ clock = pygame.time.Clock()
 
 
 A = Point(70, 150)
-B = Point(500, 200)
+B = Point(500, 400)
 C = Point(60, 300)
 D = Point(550, 300)
 
@@ -71,15 +71,8 @@ while running:
 	draw_line((C.x, C.y), (D.x, D.y))
 
 
-	# dot_x = lerp(A.x, B.x, t)
-	# dot_y = lerp(A.y, B.y, t)
-	# draw_dot((dot_x, dot_y))
-
 	intersection = get_intersection(A, B, C, D)
 	draw_dot((intersection.x, intersection.y), color=BLUE)
-
-	t+=0.003
-
 
 	pygame.display.flip()
 

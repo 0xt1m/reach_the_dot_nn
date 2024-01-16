@@ -47,7 +47,7 @@ while running:
 
 	dot.show()
 	dot.move()
-	dot.update()
+	dot.update(obstacles)
 
 	goal.show()
 

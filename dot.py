@@ -5,6 +5,8 @@ import numpy as np
 import sensors
 import properties as props
 
+from utils import Point, lerp
+
 class Dot:
 	def __init__(self, screen, radius=props.DOT_RADIUS, color=props.COLORS["white"], speed=props.DOT_SPEED, step=props.DOT_STEP):
 		self.screen = screen
@@ -81,12 +83,12 @@ class Dot:
 
 	def show(self):
 		pygame.draw.circle(self.screen, self.color, (self.x, self.y), self.radius)
-		self.sensors.show()
+		self.sensors.show(self.screen)
 
 
-	def update(self):
+	def update(self, obstacles):
 		self.out()
-		self.sensors.update()
+		self.sensors.update(obstacles)
 
 
 	def out(self):
