@@ -20,8 +20,6 @@ def lerp(A, B, t):
 def get_intersection(A, B, C, D):
 	top = (D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x)
 	bottom = (D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y)
-	# top = (D.y - C.y) * (A.x - C.x) - (D.x - C.x) * (A.y - C.y)
-	# bottom = (D.x - C.x) * (B.y - A.y) - (D.y - C.y) * (B.x - A.x)
 
 	if bottom != 0:
 		t = top/bottom

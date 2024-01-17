@@ -25,7 +25,7 @@ obstacle_width = 300
 obstacle_height = 20
 # obstacle_x = props.WIDTH / 2 - obstacle_width / 2
 obstacle_x = 550
-obstacle_y = 350
+obstacle_y = 400
 
 
 obstacles = [
@@ -48,7 +48,7 @@ while running:
 		obstacle.show()
 
 	dot.show()
-	dot.move()
+	# dot.move()
 	dot.update(obstacles)
 
 	goal.show()
